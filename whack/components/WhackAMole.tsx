@@ -8,10 +8,61 @@ const WhackAMole = () => {
     const [timeLeft, setTimeLeft] = useState<number>(30);
     const [isPowerUpActive, setIsPowerUpActive] = useState<boolean>(false);
     const [powerUpUsed, setPowerUpUsed] = useState<boolean>(false);
+    const [bombIndex, setBombIndex] = useState<number>(-1);
+    const [lives, setLives] = useState<number>(3);
+    ///********************************* MOLE LOGIC ********************************* 
+
     // Hide a specific mole
     const hideMole = (index: number) => {
         setMoles(currentMoles => currentMoles.map((mole, moleIndex) => moleIndex === index ? false : mole));
     };
+
+    // Show a random mole
+    useEffect(() => {
+        const showMole = () => {
+            if (timeLeft > 0) {
+                // Filter to find unoccupied holes (not currently showing a mole and not the bomb's location)
+                const availableHoles = moles
+                    .map((mole, index) => !mole && index !== bombIndex ? index : null)
+                    .filter((index): index is number => index !== null);
+    
+                if (availableHoles.length > 0) {
+                    const randomIndex = availableHoles[Math.floor(Math.random() * availableHoles.length)];
+                    setMoles(currentMoles => {
+                        const newMoles = [...currentMoles];
+                        newMoles[randomIndex] = true;
+    
+                        // Hide this mole after a delay
+                        setTimeout(() => hideMole(randomIndex), isPowerUpActive ? 2000 : 1000);
+                        return newMoles;
+                    });
+                }
+            }
+        };
+    
+        const moleInterval = isPowerUpActive ? (Math.random() * (550 - 200) + 200) * 2 : Math.random() * (550 - 200) + 200;
+        const timer = setInterval(showMole, moleInterval);
+    
+        return () => clearInterval(timer);
+    }, [ moles, bombIndex]);
+    //Handles the mole whacking
+    const handleWhack = (index: number) => {
+        if (index === bombIndex) {
+            // Player clicked on a bomb
+            setBombIndex(-1)
+            setLives(prevLives => prevLives - 1);
+            // Optionally, add logic to handle the game ending if lives reach 0
+            if (lives - 1 <= 0) {
+                // Handle game over (e.g., stop the game, show a message)
+            }
+        } else if (moles[index]) {
+            // Player clicked on a mole
+            setScore(prevScore => prevScore + 10);
+            hideMole(index);
+        }
+    };
+
+    /// ******************************************* POWERUP LOGIC ********************************* 
     useEffect(() => {
         const handleKeyDown = (event: KeyboardEvent) => {
             if (event.code === 'Space' && !isPowerUpActive && !powerUpUsed) {
@@ -29,40 +80,40 @@ const WhackAMole = () => {
         return () => window.removeEventListener('keydown', handleKeyDown);
     }, [isPowerUpActive, powerUpUsed]);
 
-    // Show a random mole
+    /// ******************************************* BOMB LOGIC ********************************* 
+    // Bomb appearance interval
     useEffect(() => {
-        let moleTimers: NodeJS.Timeout[] = [];
-
-        if (timeLeft > 0) {
-            const availableHoles = moles
-            .map((mole, index) => mole === false ? index : null)
-            .filter((index): index is number => index !== null);
-            const randomDelay = isPowerUpActive ? (Math.random() * (550 - 200) + 200) *2 : Math.random() * (550 - 200) + 200; // Random delay between 300 to 750ms
-            const randomIndex = availableHoles[Math.floor(Math.random() * availableHoles.length)];
-
-            moleTimers = moles.map((_, index) => {
-                
-                return setTimeout(() => {
-                    setMoles(currentMoles => {
-                        if (timeLeft <= 0) return currentMoles; // Don't show new moles if time is up
-                        const newMoles = [...currentMoles];
-                        newMoles[randomIndex] = true;
-
-                        // Hide this mole after some time
-                        setTimeout(() => hideMole(randomIndex),  isPowerUpActive ?  1000 : 2000);
-                        return newMoles;
-                    });
-                }, randomDelay); // Randomize appearance time
-            });
-        }
-
-        return () => {
-            moleTimers.forEach(clearTimeout);
+        const handleBomb = () => {
+            console.log("handleBomb called");
+            if (timeLeft > 0) {
+                const availableSpots = moles
+                    .map((mole, index) => (!mole && index !== bombIndex) ? index : null)
+                    .filter((index): index is number => index !== null);
+        
+                    if (availableSpots.length > 0) {
+                        const randomIndex = availableSpots[Math.floor(Math.random() * availableSpots.length)];
+                        console.log("Showing bomb at index:", randomIndex); // Log the bomb index
+                        setBombIndex(randomIndex); // Show the bomb
+            
+                        setTimeout(() => {
+                            console.log("Hiding bomb from index:", randomIndex); // Log hiding the bomb
+                            setBombIndex(-1); // Hide the bomb
+                        }, 1500);
+                    }
+            }
         };
-    }, [timeLeft, moles]);
+        const bombTimer = setInterval(handleBomb, 3000); // Every 3 seconds
 
-    // Update timer every sec
-    useEffect(() => {
+        // Cleanup function
+        return () => {
+            console.log("Clearing bomb interval");
+            clearInterval(bombTimer);
+        };
+    }, [bombIndex]); // Include timeLeft in dependencies
+
+    /// ******************************************** TIMER LOGIC ********************************************
+
+      useEffect(() => {
         const timerInterval = isPowerUpActive ? 2000 : 1000; // 2 seconds if power-up is active, otherwise 1 second
     
         const timer = setInterval(() => {
@@ -73,24 +124,17 @@ const WhackAMole = () => {
     
         return () => clearInterval(timer);
     }, [timeLeft, isPowerUpActive]);
-    // Handle mole whack
-    const handleWhack = (index: number) => {
-        if (moles[index]) {
-            setScore(prevScore => prevScore + 1);
-            hideMole(index);
-        }
-    };
 
     return (
         <div>
             <Score currentScore={score} />
             <div>Time Left: {timeLeft}</div>
             <div>Energy Drinks Left: {powerUpUsed ? 0 : 1}</div>
+            <div>Lives Left: {lives}</div>
             <div className="game-grid page">
                 {moles.map((mole, index) => (
-                    <div key={index} className={`mole-hole ${mole ? 'mole-visible' : ''}`} onClick={() => handleWhack(index)}>
-                        {/* Mole image or div here */}
-                    </div>
+                     <div key={index} className={`mole-hole ${mole ? 'mole' : ''} ${index === bombIndex ? 'bomb' : ''}`} onClick={() => handleWhack(index)}>
+                 </div>
                 ))}
             </div>
         </div>
