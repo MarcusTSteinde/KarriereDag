@@ -31,19 +31,26 @@ body {
   grid-template-columns: repeat(3, 1fr);
   gap: 10px;
 }
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(4, 25%); /* 4 columns, each taking 25% of the container's width */
+  grid-template-rows: 20% 30% 45%; /* 3 rows with heights of 35%, 40%, and 25% of the container's height */
+  gap: 5; /* No gap between grid items. Adjust if needed. */
+  height: 50%; /* This will make the grid container take the full viewport height */
+  width: 100%; /* This will make the grid container take the full viewport width */
+}
 
 .mole-hole {
-  width: 100px;
-  height: 100px;
+  width: auto;
+  height: auto;
   background-color: brown;
   border: 2px solid black;
   position: relative;
 }
 
 .mole {
-  padding: 40px;
- height: 40px;
- width: 40px;
+ width: auto;
+ height: auto;
  background-color: red;
 
 }
@@ -53,8 +60,19 @@ body {
   font-size: 24px;
 }
 .bomb {
-  padding: 40px;
-  height: 40px;
-  width: 40px;
+  width: auto;
+  height: auto;
   background-color: aqua;
+}
+.bg{
+  background-image: url(/background.gif);
+  background-size: cover; /* This will cover the entire area of the div without being cut */
+  background-repeat: no-repeat; /* Prevents the image from repeating */
+  background-position: center; /* Centers the image within the div */
+  position: absolute; /* Position absolute for centering */
+  top: 50%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Offset the div back by half its width and height */
+  width: calc(100% - 160px); /* Subtract the left and right padding from the full width */
+  height: calc(100% - 80px); /* Subtract the top and bottom padding from the full height */
 }

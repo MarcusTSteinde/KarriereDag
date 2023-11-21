@@ -4,7 +4,7 @@ import Score from './Score';
 
 const WhackAMole = () => {
     const [score, setScore] = useState<number>(0);
-    const [moles, setMoles] = useState<boolean[]>(Array(9).fill(false));
+    const [moles, setMoles] = useState<boolean[]>(Array(12).fill(false));
     const [timeLeft, setTimeLeft] = useState<number>(30);
     const [isPowerUpActive, setIsPowerUpActive] = useState<boolean>(false);
     const [powerUpUsed, setPowerUpUsed] = useState<boolean>(false);
@@ -40,7 +40,7 @@ const WhackAMole = () => {
             }
         };
     
-        const moleInterval = isPowerUpActive ? (Math.random() * (550 - 200) + 200) * 2 : Math.random() * (550 - 200) + 200;
+        const moleInterval = isPowerUpActive ? (Math.random() * (750 - 350) + 350) * 2 : Math.random() * (750 - 350) + 350;
         const timer = setInterval(showMole, moleInterval);
     
         return () => clearInterval(timer);
@@ -126,16 +126,20 @@ const WhackAMole = () => {
     }, [timeLeft, isPowerUpActive]);
 
     return (
-        <div>
+        <div className="w-full h-full flex flex-col">
+            <div className='h-1/2 w-full'>
             <Score currentScore={score} />
             <div>Time Left: {timeLeft}</div>
             <div>Energy Drinks Left: {powerUpUsed ? 0 : 1}</div>
             <div>Lives Left: {lives}</div>
-            <div className="game-grid page">
+            </div>
+            <div className='h-1/2 w-full flex'>
+            <div className="grid-container self-end">
                 {moles.map((mole, index) => (
                      <div key={index} className={`mole-hole ${mole ? 'mole' : ''} ${index === bombIndex ? 'bomb' : ''}`} onClick={() => handleWhack(index)}>
                  </div>
                 ))}
+            </div>
             </div>
         </div>
     );
