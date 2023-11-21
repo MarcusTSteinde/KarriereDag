@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import styles from '../styles/hs.css';
 
 const Scoreboard: React.FC = () => {
   const [scores, setScores] = useState([]);
@@ -9,23 +10,38 @@ const Scoreboard: React.FC = () => {
       try {
         const response = await fetch('https://boopabug.azurewebsites.net/api/players');
         const data = await response.json();
-        setScores(data);
+
+        const sortedScores = data.sort((a, b) => b.score - a.score);
+
+        setScores(sortedScores);
       } catch (error) {
         console.error('Error fetching scores:', error);
       }
     };
 
     fetchScores();
-  }, []); // Run this effect only once on component mount
+  }, []);
 
   return (
-    <div>
-      <h2>Scoreboard</h2>
-      <ul>
-        {scores.map((score) => (
-          <li key={score.id} className=''>{score.nickname} {score.score}</li>
-        ))}
-      </ul>
+    <div className={styles.main}>
+      <table>
+        <thead>
+          <tr>
+            <th>Rank</th>
+            <th>Name</th>
+            <th>Score</th>
+          </tr>
+        </thead>
+        <tbody>
+          {scores.map((score, index) => (
+            <tr key={score.id}>
+              <td>{index + 1}</td>
+              <td>{score.nickname}</td>
+              <td>{score.score}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 };
