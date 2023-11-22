@@ -4,6 +4,10 @@ body {
     background-color: rgb(62, 18, 52);
     color: white;
     font-family: 'Press Start 2P';
+    background-image: url('/boop-a-bug-crop.gif');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 main {
