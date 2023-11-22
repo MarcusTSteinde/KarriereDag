@@ -13,11 +13,11 @@ export default function InputFormProps() {
         alert(JSON.stringify(formJson));
       }}
     >
-      <Stack spacing={1}>
+      <form>
         <Input placeholder="Nickname" required />
         <Input placeholder="Phone number" required />
         <button type='submit'>Bla bla</button>
-      </Stack>
+      </form>
     </form>
   );
 }
