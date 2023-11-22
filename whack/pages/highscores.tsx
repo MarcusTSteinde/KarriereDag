@@ -9,8 +9,8 @@ const HighScoresPage: React.FC = () => {
       <h1>High Scores Page</h1>
       <Scoreboard />
 
-      <Link href="/">
-        <p className="text-blue-500 hover:underline cursor-pointer">Back to front page</p>
+      <Link href="/" style={{ textDecoration: 'none' }}>
+        <p className="text-blue-500 hover:underline cursor-pointer">x</p>
       </Link>
     </main>
   );
