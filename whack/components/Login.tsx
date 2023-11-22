@@ -13,11 +13,9 @@ export default function InputFormProps() {
         alert(JSON.stringify(formJson));
       }}
     >
-      <form>
         <Input placeholder="Nickname" required />
         <Input placeholder="Phone number" required />
-        <button type='submit'>Bla bla</button>
-      </form>
+        <Button type='submit'>Bla bla</Button>
     </form>
   );
 }

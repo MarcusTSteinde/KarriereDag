@@ -7,7 +7,9 @@ export default function Home() {
   return (
     <main>
       <div className="flex flex-col items-center self-center justify-between bg">
-       
+        <div className='absolute right-2/3 top-1/3'>
+      <Login />
+      </div>
       </div>
     </main>
   )
