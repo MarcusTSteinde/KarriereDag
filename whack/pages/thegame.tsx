@@ -1,8 +1,9 @@
 import React from 'react';
 import WhackAMole from '@/components/WhackAMole';
 import Link from 'next/link'
+import '../app/globals.css';
 
-const TheGame: React.FC = () => {
+const TheGamePage: React.FC = () => {
   return (
     <main>
         <div className="flex flex-col items-center self-center justify-between bg"></div>
@@ -11,4 +12,4 @@ const TheGame: React.FC = () => {
   );
 };
 
-export default TheGame;
+export default TheGamePage;
