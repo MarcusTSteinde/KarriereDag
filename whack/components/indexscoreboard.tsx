@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import styles from '../styles/hs.css';
 
-const Scoreboard: React.FC = () => {
+const IndexScoreboard: React.FC = () => {
   const [scores, setScores] = useState([]);
 
   useEffect(() => {
@@ -13,8 +12,8 @@ const Scoreboard: React.FC = () => {
 
         const sortedScores = data.sort((a, b) => b.score - a.score);
 
-        const top10Scores = sortedScores.slice(0, 10);
-        setScores(top10Scores);
+        const top3Scores = sortedScores.slice(0, 3);
+        setScores(top3Scores);
         
       } catch (error) {
         console.error('Error fetching scores:', error);
@@ -48,4 +47,4 @@ const Scoreboard: React.FC = () => {
   );
 };
 
-export default Scoreboard;
+export default IndexScoreboard;
