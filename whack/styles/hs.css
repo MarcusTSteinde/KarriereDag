@@ -36,7 +36,7 @@ div {
 }
 
 .backbuttonbox p:hover {
-    color: rgb(233,97,219);
+    color: rgb(216, 80, 202);
 }
 
 img {
@@ -68,7 +68,7 @@ td {
   }
   
   .table-container::-webkit-scrollbar-thumb {
-    background-color: rgb(251, 80, 231);
+    background-color: rgb(216, 80, 202);
     border-radius: 6px;
   }
   

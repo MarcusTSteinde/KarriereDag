@@ -69,7 +69,7 @@ div {
 .buttonbox p {
     padding: 60px;
     border-radius: 15px;
-    background-color:  rgb(233,97,219);
+    background-color:  rgb(216, 80, 202);
     text-align: center;
     align-items: center;
     margin: 0;
@@ -79,6 +79,6 @@ div {
 
 .buttonbox p:hover {
     background-color: rgb(32,32,56);
-    color: rgb(233,97,219);
-    border:  rgb(233,97,219) solid 3px;
+    color: rgb(216, 80, 202);
+    border:  rgb(216, 80, 202) solid 3px;
 }
