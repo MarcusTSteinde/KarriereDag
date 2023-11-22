@@ -9,7 +9,7 @@ const HighScoresPage: React.FC = () => {
       
       <div>
         <div className='infoboxes'>
-          
+
           <img className='header' src="/gamerules.svg" alt="header" />
 
           <div className='infobox'>
@@ -21,7 +21,7 @@ const HighScoresPage: React.FC = () => {
             <p>Beware! The bombs are lurking, and hitting them will cost you a life. You have 3!</p>
           </div>
           <div className='infobox'>
-            <img src="/energy-drink.svg" alt="image" />
+            <img src="/energy2.svg" alt="image" />
             <p>Grab those energy drinks to slow down time, making it easier for you to BOOP bugs without breaking a sweat.</p>
           </div>
         </div>
