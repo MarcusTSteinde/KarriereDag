@@ -25,6 +25,12 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+/* Score div that changes when score updates */
+.gameUIBox.score-updated {
+  background-color: #E961DB; /* Change to the pink color you desire */
+  transform: scaleX(1.1) scaleY(1.05); 
+  transition: all 0.3s ease-in-out; /* Smooth transition for size and color */
+}
 
 .game-grid {
   display: grid;
@@ -53,12 +59,50 @@ body {
  background-repeat: no-repeat;
  background-size: contain;
  background-position: center;
-
+ z-index: 10;
+}
+@font-face {
+  font-family: "PressStart";
+  src: url(/fonts/PressStart2P-Regular.ttf);
+}
+.PressStartFont
+{
+  font-family: "PressStart";
 }
 .score-board {
   text-align: center;
   margin-bottom: 20px;
   font-size: 24px;
+}
+.gameUIBox
+{
+  transform-origin: left bottom; 
+  transition: all 0.3s ease-in-out; 
+  background-color: #50324F;
+  padding: 0.5rem;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+.pop-up {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 10rem;
+  text-align: center;
+  transform: translate(-50%, -50%); /* Center the pop-up on the coordinates */
+  transition: opacity 0.3s, visibility 0.3s;
+  opacity: 0;
+  visibility: hidden;
+  border: 2.5px solid #E961DB;
+  color: #E961DB;
+  background-color: #202038; /* The color you want for the background */
+  padding: 0.5rem;
+  border-radius: 20px;
+  font-family: "PressStart";
+}
+.pop-up.show {
+  opacity: 1;
+  visibility: visible;
 }
 .bomb {
   width: auto;
@@ -67,6 +111,7 @@ body {
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
+  z-index: 10;
 }
 .bg{
   background-image: url(/background.gif);
@@ -79,4 +124,23 @@ body {
   transform: translate(-50%, -50%); /* Offset the div back by half its width and height */
   width: calc(100% - 160px); /* Subtract the left and right padding from the full width */
   height: calc(100% - 80px); /* Subtract the top and bottom padding from the full height */
+}
+.logo-container {
+  position: absolute; /* Position it without affecting other elements */
+  top: 0; /* Align to the top of the parent */
+  right: 0; /* Align to the right of the parent */
+  background-image: url('/ExperisLogo.svg'); /* Path to your logo image */
+  background-position: center; /* Center the logo in the div */
+  background-repeat: no-repeat; /* Do not repeat the logo */
+  background-size: contain; /* Ensure the entire logo is visible */
+  width: 500px; /* Set a width for the logo */
+  height: 200px; /* Set a height for the logo */
+  pointer-events: none; /* Make sure it doesn't interfere with gameplay */
+  opacity: 0.5; /* Set the desired opacity */
+  z-index: -1; /* Ensure it's behind all other content */
+}
+.life-lost-animation {
+  transform: scale(1.1); /* Example: scale up the div */
+  transition: transform 0.5s ease-out; /* Smooth transition */
+  background-color: #99001B; /* Temporary background color change */
 }
