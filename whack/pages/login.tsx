@@ -2,6 +2,7 @@ import Login from "@/components/Login";
 import "../app/globals.css";
 import Logo from "../public/logo.svg";
 import Image from "next/image";
+import Scoreboard from "@/components/Scoreboard";
 
 export default function Home() {
   return (
@@ -10,8 +11,13 @@ export default function Home() {
         <div className="mt-12">
         <Image src={Logo} alt="game logo" />
         </div>
-        <div className="absolute right-2/3 top-1/3">
+        <div className="absolute inset-y-0 left-32 w-16 top-80">
           <Login />
+        </div>
+        <div >
+
+        {/* <Scoreboard /> */}
+
         </div>
       </div>
     </main>
