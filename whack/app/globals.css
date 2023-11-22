@@ -25,6 +25,12 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+/* Score div that changes when score updates */
+.gameUIBox.score-updated {
+  background-color: #E961DB; /* Change to the pink color you desire */
+  transform: scaleX(1.1) scaleY(1.05); 
+  transition: all 0.3s ease-in-out; /* Smooth transition for size and color */
+}
 
 .game-grid {
   display: grid;
@@ -55,10 +61,48 @@ body {
  background-position: center;
 
 }
+@font-face {
+  font-family: "PressStart";
+  src: url(/fonts/PressStart2P-Regular.ttf);
+}
+.PressStartFont
+{
+  font-family: "PressStart";
+}
 .score-board {
   text-align: center;
   margin-bottom: 20px;
   font-size: 24px;
+}
+.gameUIBox
+{
+  transform-origin: left bottom; 
+  transition: all 0.3s ease-in-out; 
+  background-color: #50324F;
+  padding: 0.5rem;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+.pop-up {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 10rem;
+  text-align: center;
+  transform: translate(-50%, -50%); /* Center the pop-up on the coordinates */
+  transition: opacity 0.3s, visibility 0.3s;
+  opacity: 0;
+  visibility: hidden;
+  border: 2.5px solid #E961DB;
+  color: #E961DB;
+  background-color: #202038; /* The color you want for the background */
+  padding: 0.5rem;
+  border-radius: 20px;
+  font-family: "PressStart";
+}
+.pop-up.show {
+  opacity: 1;
+  visibility: visible;
 }
 .bomb {
   width: auto;
