@@ -3,6 +3,7 @@ import styles from '../styles/hs.css';
 
 const Scoreboard: React.FC = () => {
   const [scores, setScores] = useState([]);
+  const userNickname = localStorage.getItem('nickname');
 
   useEffect(() => {
     // Fetch scores from the provided API endpoint
@@ -36,7 +37,7 @@ const Scoreboard: React.FC = () => {
         </thead>
         <tbody>
           {scores.map((score, index) => (
-            <tr key={score.id}>
+            <tr key={score.id} style={{ backgroundColor: score.nickname === userNickname ? 'pink' : 'inherit' }}>
               <td>{index + 1}</td>
               <td>{score.nickname}</td>
               <td>{score.score}</td>
