@@ -3,10 +3,9 @@ import styles from '../styles/hs.css';
 
 const Scoreboard: React.FC = () => {
   const [scores, setScores] = useState([]);
-  const userNickname = localStorage.getItem('nickname');
+  const userNickname = typeof window !== 'undefined' ? localStorage.getItem('nickname') : null;
 
   useEffect(() => {
-    // Fetch scores from the provided API endpoint
     const fetchScores = async () => {
       try {
         const response = await fetch('https://boopabug.azurewebsites.net/api/players');
@@ -16,6 +15,9 @@ const Scoreboard: React.FC = () => {
 
         const top10Scores = sortedScores.slice(0, 10);
         setScores(top10Scores);
+
+        //For manually testing
+        localStorage.setItem('nickname', 'Ida');
         
       } catch (error) {
         console.error('Error fetching scores:', error);
@@ -37,7 +39,7 @@ const Scoreboard: React.FC = () => {
         </thead>
         <tbody>
           {scores.map((score, index) => (
-            <tr key={score.id} style={{ backgroundColor: score.nickname === userNickname ? 'pink' : 'inherit' }}>
+            <tr key={score.id} style={{ color: score.nickname === userNickname ? 'rgb(216, 80, 202)' : 'inherit' }}>
               <td>{index + 1}</td>
               <td>{score.nickname}</td>
               <td>{score.score}</td>

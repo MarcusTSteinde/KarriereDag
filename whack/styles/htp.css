@@ -63,7 +63,7 @@ div {
     height: 60vh;
     align-items: center;
     display: flex;
-    flex-direction: column; /* Set flex direction to column */
+    flex-direction: column;
     justify-content: flex-end;
 }
 
