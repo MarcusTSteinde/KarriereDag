@@ -44,6 +44,12 @@ const IndexScoreboard: React.FC = () => {
           ))}
         </tbody>
       </table>
+      <a href='/highscores'>
+      <button 
+        className="buttonbox">
+          See Scoreboard
+        </button>
+        </a>
     </div>
   );
 };

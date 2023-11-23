@@ -19,11 +19,13 @@ export default function InputFormProps() {
       }}>
         <Input placeholder="Nickname" required />
         <Input placeholder="Phone number" required />
+        <div>
         <button 
         // type="submit"
         className="buttonbox">
           Login
         </button>
+        </div>
       </Stack>
     </form>
   );
