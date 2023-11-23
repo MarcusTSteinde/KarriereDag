@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
 
 body {
     background-color: rgb(62, 18, 52);
@@ -12,58 +12,58 @@ body {
 }
 
 main {
-    align-items: center;
-    justify-content: center;
-    width: 100vw;
-    height: 90vh;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 90vh;
 }
 
 div {
-    width: 100vw;
-    display: flex;
-    flex-direction: row;
-    margin: auto;
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  margin: auto;
 }
 
 .infoboxes {
-    width: 45vw;
-    display: flex;
-    flex-direction: column;
+  width: 45vw;
+  display: flex;
+  flex-direction: column;
 }
 
 .header {
-    width: 500px;
-    margin: 50px auto 50px 70px;
-    align-items: center;
+  width: 500px;
+  margin: 50px auto 50px 70px;
+  align-items: center;
 }
 
 .infobox {
-    margin: 10px;
-    width: 50vw;
+  margin: 10px;
+  width: 50vw;
 }
 
 .infobox img {
-    display: flex;
-    flex-direction: row;
-    width: 100px;
-    margin-left: 40px;
-    margin-right: 20px;
+  display: flex;
+  flex-direction: row;
+  width: 100px;
+  margin-left: 40px;
+  margin-right: 20px;
 }
 .infobox p {
-    width: 100%;
-    margin: 10px;
-    height: 80px;
-    align-items: center;
-    line-height: 20px;
+  width: 100%;
+  margin: 10px;
+  height: 80px;
+  align-items: center;
+  line-height: 20px;
 }
 
 .buttonbox {
-    width: 45vw;
-    height: 60vh;
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
+  width: 45vw;
+  height: 60vh;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }
 
 .buttonbox p {

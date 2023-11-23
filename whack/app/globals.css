@@ -122,8 +122,8 @@ body {
   top: 50%; /* Center vertically */
   left: 50%; /* Center horizontally */
   transform: translate(-50%, -50%); /* Offset the div back by half its width and height */
-  width: calc(100% - 160px); /* Subtract the left and right padding from the full width */
-  height: calc(100% - 80px); /* Subtract the top and bottom padding from the full height */
+  width: calc(100%); /* Subtract the left and right padding from the full width */
+  height: calc(100%); /* Subtract the top and bottom padding from the full height */
 }
 .logo-container {
   position: absolute; /* Position it without affecting other elements */
