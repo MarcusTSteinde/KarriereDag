@@ -6,12 +6,16 @@ import Link from 'next/link'
 const HighScoresPage: React.FC = () => {
   return (
     <main>
-      <h1>High Scores Page</h1>
-      <Scoreboard />
+      <div className='backbuttonbox'>
+        <Link href="/" style={{ textDecoration: 'none' }}>
+          <p className="text-blue-500 hover:underline cursor-pointer">x</p>
+        </Link>
+      </div>
 
-      <Link href="/">
-        <p className="text-blue-500 hover:underline cursor-pointer">Back to front page</p>
-      </Link>
+      <img src="/highscores.svg" alt="header high scores" />
+      
+      <Scoreboard />
+      
     </main>
   );
 };
