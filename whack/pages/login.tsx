@@ -11,11 +11,11 @@ export default function Home() {
         <div className="mt-12">
           <Image src={Logo} alt="game logo" />
         </div>
-        <div className="columns-2">
-          <div className="absolute inset-y-0 left-32 w-16 top-80">
+          <div className="absolute inset-y-0 left-32 top-80">
             <Login />
           </div>
-          <div><IndexScoreboard /></div>
+          <div className="absolute inset-y-0 right-64 top-80 w-00">
+            <IndexScoreboard />
         </div>
       </div>
     </main>

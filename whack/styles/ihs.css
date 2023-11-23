@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+body {
+    background-color: rgb(62, 18, 52);
+    color: white;
+    font-family: 'Press Start 2P';
+    background-image: url('/boop-a-bug-crop.gif');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+div {
+    /* display: flex; */
+    justify-content: center;
+}
+
+.backbuttonbox {
+    width: 100vw;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.backbuttonbox p {
+    color: white;
+    margin: 20px 30px 0 0;
+    font-size: 50px;
+}
+
+.backbuttonbox p:hover {
+    color: rgb(216, 80, 202);
+}
+
+img {
+    width: 500px;
+    margin-bottom: 30px;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+.table-container {
+    width: 100%;
+    height: 60vh;
+    overflow-y: auto;
+}
+
+th {
+    position: sticky;
+    height: 40px;
+}
+
+td {
+    height: 25px;
+}
+
+.table-container::-webkit-scrollbar {
+    width: 12px;
+  }
+  
+  .table-container::-webkit-scrollbar-thumb {
+    background-color: rgb(216, 80, 202);
+    border-radius: 6px;
+  }
+  
+  .table-container::-webkit-scrollbar-track {
+    background-color: rgb(32,32,56);
+    border-radius: 6px;
+  }
