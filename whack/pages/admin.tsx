@@ -1,7 +1,8 @@
 import React from 'react';
 import '../styles/hs.css';
 import Link from 'next/link'
-import AdminScoreboard from '@/components/adminscoreboard';
+import AdminScoreboard from '@/components/Adminscoreboard';
+
 
 const AdminPage: React.FC = () => {
   return (
@@ -15,7 +16,7 @@ const AdminPage: React.FC = () => {
       <img src="/highscores.svg" alt="header high scores" />
       
       <div className="table-container">
-        <AdminScoreboard />
+        <AdminScoreboard/>
       </div>
       
     </main>
