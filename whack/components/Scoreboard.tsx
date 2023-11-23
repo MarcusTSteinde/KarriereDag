@@ -15,7 +15,7 @@ const Scoreboard: React.FC = () => {
                 setScores(sortedScores);
 
                 // For manually testing
-                localStorage.setItem('nickname', 'annette');
+                //localStorage.setItem('nickname', 'annette');
 
             } catch (error) {
                 console.error('Error fetching scores:', error);
