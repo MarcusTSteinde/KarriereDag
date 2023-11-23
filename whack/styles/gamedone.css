@@ -34,6 +34,7 @@ main {
     width: 250px;
     border-radius: 15px;
     background-color:  rgb(216, 80, 202);
+    border:  rgb(216, 80, 202) solid 3px;
     text-align: center;
     align-items: center;
     margin: 0;
@@ -45,7 +46,6 @@ main {
 .buttonbox .seeresultsbutton p:hover {
     background-color: rgb(32,32,56);
     color: rgb(216, 80, 202);
-    border:  rgb(216, 80, 202) solid 3px;
 }
 
 .buttonbox .homebutton p {
