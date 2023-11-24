@@ -21,7 +21,7 @@ const HowToPlayPage: React.FC = () => {
 
         <div className='buttonbox'>
           <Link href="/thegame" style={{ textDecoration: 'none' }}>
-          <p className="text-blue-500 hover:underline cursor-pointer">Start Booping</p>
+            <p className="text-blue-500 hover:underline cursor-pointer">Start Booping</p>
           </Link>
         </div>
       </div>
