@@ -20,10 +20,6 @@ const HighScoresPage: React.FC = () => {
             <img src="/bomb.svg" alt="image" />
             <p>Beware! The bombs are lurking, and hitting them will cost you a life. You have 3!</p>
           </div>
-          <div className='infobox'>
-            <img src="/energy2.svg" alt="image" />
-            <p>Grab those energy drinks to slow down time, making it easier for you to BOOP bugs without breaking a sweat.</p>
-          </div>
         </div>
 
         <div className='buttonbox'>
