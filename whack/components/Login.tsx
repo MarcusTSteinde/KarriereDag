@@ -4,6 +4,7 @@ import Input from "@mui/joy/Input";
 import Stack from "@mui/joy/Stack";
 import "../styles/login.css";
 import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
 
 interface User {
   id: number;
@@ -15,31 +16,28 @@ export default function InputFormProps() {
   const [users, setUsers] = useState<User[]>([]);
   const [nickname, setNickname] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
+  const router = useRouter();
+
+  const fetchUsers = async () => {
+    try {
+      const response = await fetch(
+        "https://boopabug.azurewebsites.net/api/players"
+      );
+
+      if (response.ok) {
+        const usersData = await response.json();
+        setUsers(usersData);
+        localStorage.setItem("users", JSON.stringify(usersData));
+        console.log(usersData);
+      } else {
+        console.error(`Failed to fetch users with status code: ${response.status}`);
+      }
+    } catch (error) {
+      console.error("An error occurred while fetching users:", error);
+    }
+  };
 
   useEffect(() => {
-    const fetchUsers = async () => {
-      try {
-        const response = await fetch(
-          "https://boopabug.azurewebsites.net/api/players"
-        );
-
-        if (response.ok) {
-          const usersData = await response.json();
-          setUsers(usersData);
-          // You can also store the users in local storage or state as needed
-          localStorage.setItem("users", JSON.stringify(usersData));
-          console.log(users);
-          console.log(usersData); // Log the data structure
-        } else {
-          console.error(
-            `Failed to fetch users with status code: ${response.status}`
-          );
-        }
-      } catch (error) {
-        console.error("An error occurred while fetching users:", error);
-      }
-    };
-
     fetchUsers();
   }, []);
 
@@ -49,38 +47,34 @@ export default function InputFormProps() {
   }) => {
     event.preventDefault();
 
-    // Extract data from the form
     const formData = new FormData(event.currentTarget);
-    const nickname = formData.get("nickname") as string; // Type assertion
+    const nickname = formData.get("nickname") as string;
     const phoneNumber = formData.get("phoneNumber");
 
-    // Check if the user with the same nickname already exists
     if (isUserExisting(nickname)) {
-      alert(
-        "User with the same nickname already exists. Please choose a different nickname."
-      );
+      alert("User with the same nickname already exists. Please choose a different nickname.");
       return;
     }
 
-    // Your registration logic here (replace with actual API call)
     try {
-      const response = await fetch(
-        "https://boopabug.azurewebsites.net/api/players",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            nickname: nickname,
-            phoneNumber: phoneNumber,
-          }),
-        }
-      );
+      const response = await fetch("https://boopabug.azurewebsites.net/api/players", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          nickname: nickname,
+          phoneNumber: phoneNumber,
+        }),
+      });
 
       if (response.ok) {
+        // Fetch users again after successful registration to get the updated list
+        fetchUsers();
         localStorage.setItem("nickname", nickname);
         alert("Registration successful!");
+        router.push("/howtoplay");
+
       } else {
         alert(`Registration failed with status code: ${response.status}`);
         const errorText = await response.text();
@@ -91,7 +85,6 @@ export default function InputFormProps() {
     }
   };
 
-  // Check if the user with the same nickname already exists
   const isUserExisting = (nickname: string) => {
     return users.some((user) => user.nickname === nickname);
   };
@@ -102,7 +95,7 @@ export default function InputFormProps() {
         <Input name="nickname" placeholder="Nickname" required />
         <Input name="phoneNumber" placeholder="Phone number" required />
         <div>
-          <button className="buttonbox">Register</button>
+          <button className="buttonbox" type="submit">Register</button>
         </div>
       </Stack>
     </form>
