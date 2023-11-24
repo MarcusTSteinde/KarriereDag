@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import styles from '../styles/hs.css';
+import '../styles/hs.css';
 
 const Scoreboard: React.FC = () => {
     const [scores, setScores] = useState([]);
@@ -30,7 +30,7 @@ const Scoreboard: React.FC = () => {
     const isUserInTop10 = userScoreIndex < 10;
 
     return (
-        <div className={styles.main}>
+        <div className="main">
             <table>
                 <thead>
                     <tr>

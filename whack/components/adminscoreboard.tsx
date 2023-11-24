@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import styles from '../styles/hs.css';
+import '../styles/hs.css';
 
 const AdminScoreboard: React.FC = () => {
   const [scores, setScores] = useState([]);
@@ -23,7 +23,7 @@ const AdminScoreboard: React.FC = () => {
   }, []);
 
   return (
-    <div className={styles.main}>
+    <div className="main">
       <table>
         <thead>
           <tr>

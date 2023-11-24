@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import styles from '../styles/ihs.css';
+import '../styles/hs.css';
 import Link from 'next/link';
 const IndexScoreboard: React.FC = () => {
   const [scores, setScores] = useState([]);
