@@ -1,15 +1,23 @@
 import React, { useEffect, useState } from 'react';
 import '../styles/ihs.css';
 
+// Define the type for each score object
+interface Score {
+    id: string;
+    nickname: string;
+    score: number;
+}
+
 const IndexScoreboard: React.FC = () => {
-  const [scores, setScores] = useState([]);
+    const [scores, setScores] = useState<Score[]>([]);
 
   useEffect(() => {
     // Fetch scores from the provided API endpoint
     const fetchScores = async () => {
       try {
         const response = await fetch('https://boopabug.azurewebsites.net/api/players');
-        const data = await response.json();
+
+        const data: Score[] = await response.json();
 
         const sortedScores = data.sort((a, b) => b.score - a.score);
 

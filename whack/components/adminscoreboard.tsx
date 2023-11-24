@@ -1,15 +1,23 @@
 import React, { useEffect, useState } from 'react';
 import '../styles/hs.css';
 
+interface Score {
+    id: string;
+    nickname: string;
+    score: number;
+    phoneNumber: string;
+}
+
 const AdminScoreboard: React.FC = () => {
-  const [scores, setScores] = useState([]);
+    const [scores, setScores] = useState<Score[]>([]);
 
   useEffect(() => {
     // Fetch scores from the provided API endpoint
     const fetchScores = async () => {
       try {
         const response = await fetch('https://boopabug.azurewebsites.net/api/players');
-        const data = await response.json();
+        
+        const data: Score[] = await response.json();
 
         const allScores = data.sort((a, b) => b.score - a.score);
         setScores(allScores);
