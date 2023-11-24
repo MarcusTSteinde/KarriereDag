@@ -1,21 +1,29 @@
 import React, { useEffect, useState } from 'react';
 import '../styles/hs.css';
 
-const Scoreboard: React.FC = () => {
-    const [scores, setScores] = useState([]);
+// Define the type for each score object
+interface Score {
+    id: string;
+    nickname: string;
+    score: number;
+}
+
+const Scoreboard = () => {
+    // Define the state with the type for the array of scores
+    const [scores, setScores] = useState<Score[]>([]);
     const userNickname = typeof window !== 'undefined' ? localStorage.getItem('nickname') : null;
 
     useEffect(() => {
         const fetchScores = async () => {
             try {
                 const response = await fetch('https://boopabug.azurewebsites.net/api/players');
-                const data = await response.json();
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const data: Score[] = await response.json();
 
                 const sortedScores = data.sort((a, b) => b.score - a.score);
                 setScores(sortedScores);
-
-                // For manually testing
-                //localStorage.setItem('nickname', 'annette');
 
             } catch (error) {
                 console.error('Error fetching scores:', error);
@@ -55,7 +63,7 @@ const Scoreboard: React.FC = () => {
                         </tr>
                     )}
                     {!isUserInTop10 && userScoreIndex !== -1 && (
-                        <tr style={{ color: userNickname === userNickname ? 'rgb(237, 255, 31)' : 'inherit' }}>
+                        <tr style={{ color: 'rgb(237, 255, 31)' }}>
                             <td>{userScoreIndex + 1}</td>
                             <td>{userNickname}</td>
                             <td>{scores[userScoreIndex].score}</td>
