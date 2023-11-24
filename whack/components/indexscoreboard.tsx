@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import styles from '../styles/ihs.css';
+import '../styles/ihs.css';
 
 const IndexScoreboard: React.FC = () => {
   const [scores, setScores] = useState([]);
@@ -25,7 +25,7 @@ const IndexScoreboard: React.FC = () => {
   }, []);
 
   return (
-    <div className={styles.main}>
+    <div>
       <table>
         <thead>
           <tr>

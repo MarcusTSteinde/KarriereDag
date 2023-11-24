@@ -23,7 +23,7 @@ const AdminScoreboard: React.FC = () => {
   }, []);
 
   return (
-    <div className="main">
+    <div>
       <table>
         <thead>
           <tr>
