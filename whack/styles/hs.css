@@ -8,6 +8,7 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
+    margin: 0;
 }
 
 main {
@@ -16,6 +17,7 @@ main {
     align-items: center;
     justify-content: center;
     text-align: center;
+    margin: 0;
 }
 
 div {
@@ -27,11 +29,12 @@ div {
     width: 100vw;
     display: flex;
     justify-content: flex-end;
+    margin: 0;
 }
 
 .backbuttonbox p {
     color: white;
-    margin: 20px 30px 0 0;
+    margin: 10px 40px 0 0;
     font-size: 50px;
 }
 
@@ -41,7 +44,8 @@ div {
 
 img {
     width: 500px;
-    margin-bottom: 30px;
+    margin-bottom:20px;
+    margin-top: 0;
 }
 
 table {
@@ -57,11 +61,11 @@ table {
 
 th {
     position: sticky;
-    height: 40px;
+    height: 35px;
 }
 
 td {
-    height: 25px;
+    height: 23px;
 }
 
 .table-container::-webkit-scrollbar {
@@ -77,3 +81,71 @@ td {
     background-color: rgb(32,32,56);
     border-radius: 6px;
   }
+
+  .buttonbox {
+    width: 45vw;
+    height: 18vh;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.buttonbox .homebutton p {
+    padding: 21px;
+    width: 180px;
+    border-radius: 15px;
+    background-color:  rgb(32,32,56);
+    text-align: center;
+    align-items: center;
+    margin: 0;
+    color: white;
+    text-decoration: none;
+    margin: 0 20px;
+    border:  rgb(216, 80, 202) solid 3px;
+}
+
+.buttonbox .homebutton p:hover {
+    background-color: white;
+    color: rgb(32,32,56);
+    border:  rgb(216, 80, 202) solid 3px;
+
+}
+
+.buttonbox .playagainbutton p {
+    padding: 22px;
+    width: 180px;
+    border-radius: 15px;
+    background-color:  rgb(216, 80, 202);
+    border:  rgb(216, 80, 202) solid 3px;
+    text-align: center;
+    align-items: center;
+    margin: 0;
+    color: white;
+    text-decoration: none;
+    margin: 0 20px;
+}
+
+.buttonbox .playagainbutton p:hover {
+    background-color: rgb(32,32,56);
+    color: rgb(216, 80, 202);
+}
+
+.deletebutton p {
+    padding: 22px;
+    width: 300px;
+    border-radius: 15px;
+    background-color:  rgb(216, 80, 202);
+    border:  rgb(216, 80, 202) solid 3px;
+    text-align: center;
+    align-items: center;
+    margin: 0;
+    color: white;
+    text-decoration: none;
+    margin-top: 25px;
+}
+
+.deletebutton p:hover {
+    background-color: rgb(32,32,56);
+    color: rgb(216, 80, 202);
+}

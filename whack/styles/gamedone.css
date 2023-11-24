@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+body {
+    background-color: rgb(62, 18, 52);
+    color: white;
+    font-family: 'Press Start 2P';
+    background-image: url('/background.gif');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    margin: 0;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 0;
+    height: 100vh;
+}
+
+.buttonbox {
+    width: 45vw;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.buttonbox .seeresultsbutton p {
+    padding: 35px;
+    width: 250px;
+    border-radius: 15px;
+    background-color:  rgb(216, 80, 202);
+    border:  rgb(216, 80, 202) solid 3px;
+    text-align: center;
+    align-items: center;
+    margin: 0;
+    color: white;
+    text-decoration: none;
+    margin: 40px 0 0 0;
+}
+
+.buttonbox .seeresultsbutton p:hover {
+    background-color: rgb(32,32,56);
+    color: rgb(216, 80, 202);
+}
+
+.buttonbox .homebutton p {
+    padding: 35px;
+    width: 250px;
+    border-radius: 15px;
+    background-color:  rgb(32,32,56);
+    text-align: center;
+    align-items: center;
+    margin: 0;
+    color: white;
+    text-decoration: none;
+    margin: 40px 0 0 0;
+    border:  rgb(216, 80, 202) solid 3px;
+}
+
+.buttonbox .homebutton p:hover {
+    background-color: white;
+    color: rgb(32,32,56);
+    border:  rgb(216, 80, 202) solid 3px;
+
+}
+

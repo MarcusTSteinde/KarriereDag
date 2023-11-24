@@ -15,7 +15,7 @@ const Scoreboard: React.FC = () => {
                 setScores(sortedScores);
 
                 // For manually testing
-                localStorage.setItem('nickname', 'annette');
+                //localStorage.setItem('nickname', 'annette');
 
             } catch (error) {
                 console.error('Error fetching scores:', error);
@@ -41,7 +41,7 @@ const Scoreboard: React.FC = () => {
                 </thead>
                 <tbody>
                     {top10Scores.map((score, index) => (
-                        <tr key={score.id} style={{ color: score.nickname === userNickname ? 'rgb(216, 80, 202)' : 'inherit' }}>
+                        <tr key={score.id} style={{ color: score.nickname === userNickname ? 'rgb(237, 255, 31)' : 'inherit' }}>
                             <td>{index + 1}</td>
                             <td>{score.nickname}</td>
                             <td>{score.score}</td>
@@ -55,7 +55,7 @@ const Scoreboard: React.FC = () => {
                         </tr>
                     )}
                     {!isUserInTop10 && userScoreIndex !== -1 && (
-                        <tr style={{ color: userNickname === userNickname ? 'rgb(216, 80, 202)' : 'inherit' }}>
+                        <tr style={{ color: userNickname === userNickname ? 'rgb(237, 255, 31)' : 'inherit' }}>
                             <td>{userScoreIndex + 1}</td>
                             <td>{userNickname}</td>
                             <td>{scores[userScoreIndex].score}</td>

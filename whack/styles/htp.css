@@ -1,14 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
 
 body {
-  background-color: rgb(62, 18, 52);
-  color: white;
-  font-family: "Press Start 2P";
-  background-image: url("/boop-a-bug-crop2.gif");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  margin: 0;
+    background-color: rgb(62, 18, 52);
+    color: white;
+    font-family: 'Press Start 2P';
+    background-image: url('/boop-a-bug-crop2.gif');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    margin: 0;
 }
 
 main {
@@ -67,18 +67,18 @@ div {
 }
 
 .buttonbox p {
-  padding: 60px;
-  border-radius: 15px;
-  background-color: rgb(216, 80, 202);
-  text-align: center;
-  align-items: center;
-  margin: 0;
-  color: white;
-  text-decoration: none;
+    padding: 60px;
+    border-radius: 15px;
+    background-color:  rgb(216, 80, 202);
+    border:  rgb(216, 80, 202) solid 3px;
+    text-align: center;
+    align-items: center;
+    margin: 0;
+    color: white;
+    text-decoration: none;
 }
 
 .buttonbox p:hover {
-  background-color: rgb(32, 32, 56);
-  color: rgb(216, 80, 202);
-  border: rgb(216, 80, 202) solid 3px;
+    background-color: rgb(32,32,56);
+    color: rgb(216, 80, 202);
 }
