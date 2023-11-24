@@ -4,7 +4,7 @@ import Input from "@mui/joy/Input";
 import Stack from "@mui/joy/Stack";
 import "../styles/login.css";
 import { useEffect, useState } from "react";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 
 interface User {
   id: number;
@@ -73,7 +73,7 @@ export default function InputFormProps() {
         fetchUsers();
         localStorage.setItem("nickname", nickname);
         alert("Registration successful!");
-        router.push("/howtoplay");
+        router.push("/howtoplay");  
 
       } else {
         alert(`Registration failed with status code: ${response.status}`);
