@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import '../styles/hs.css';
 import Link from 'next/link'
-import AdminScoreboard from '@/components/Adminscoreboard';
+import AdminScoreboard from '@/components/adminscoreboard';
 
 
 const AdminPage: React.FC = () => {
