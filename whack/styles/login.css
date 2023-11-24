@@ -1,3 +1,8 @@
+@font-face {
+    font-family: "PressStart";
+    src: url(/fonts/PressStart2P-Regular.ttf);
+  }
+
 .buttonbox {
     padding: 30px;
     width: 100%;
@@ -8,7 +13,9 @@
     margin: 0;
     color: white;
     text-decoration: none;
-    margin-top: 10px;
+    margin-top: 30px;
+    font-family: "PressStart";
+
 }
 
 .buttonbox:hover {

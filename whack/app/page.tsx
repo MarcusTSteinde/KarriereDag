@@ -1,6 +1,6 @@
 "use client"
 import Login from "@/components/Login";
-import "../app/globals.css";
+import "./globals.css";
 import Logo from "../public/logo.svg";
 import Image from "next/image";
 import IndexScoreboard from "@/components/indexscoreboard";

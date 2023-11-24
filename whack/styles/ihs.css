@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
+@font-face {
+    font-family: "PressStart";
+    src: url(/fonts/PressStart2P-Regular.ttf);
+  }
+
 body {
     background-color: rgb(62, 18, 52);
     color: white;
@@ -8,6 +13,7 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
+    font-family: "PressStart";
 }
 
 main {
@@ -44,10 +50,13 @@ img {
 }
 
 table {
+    font-family: "PressStart";
+    color: white;
 }
 
 tbody {
     padding: 100px;
+
 }
 
 .table-container {
