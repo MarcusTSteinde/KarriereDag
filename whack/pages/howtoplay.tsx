@@ -2,14 +2,11 @@ import React from 'react';
 import '../styles/htp.css';
 import Link from 'next/link'
 
-const HighScoresPage: React.FC = () => {
+const HowToPlayPage: React.FC = () => {
   return (
     <main>
-      
-      
       <div>
         <div className='infoboxes'>
-
           <img className='header' src="/gamerules.svg" alt="header" />
 
           <div className='infobox'>
@@ -24,7 +21,7 @@ const HighScoresPage: React.FC = () => {
 
         <div className='buttonbox'>
           <Link href="/thegame" style={{ textDecoration: 'none' }}>
-            <p className="text-blue-500 hover:underline cursor-pointer">Start Booping</p>
+          <p className="text-blue-500 hover:underline cursor-pointer">Start Booping</p>
           </Link>
         </div>
       </div>
@@ -32,4 +29,4 @@ const HighScoresPage: React.FC = () => {
   );
 };
 
-export default HighScoresPage;
+export default HowToPlayPage;
