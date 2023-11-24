@@ -1,4 +1,4 @@
-import React from 'react';
+import { useEffect } from 'react';
 import WhackAMole from '@/components/WhackAMole';
 import Link from 'next/link'
 import '../app/globals.css';
