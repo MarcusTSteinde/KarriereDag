@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import '../styles/ihs.css';
-
+import Link from 'next/link';
 // Define the type for each score object
 interface Score {
     id: string;
@@ -52,12 +52,12 @@ const IndexScoreboard: React.FC = () => {
           ))}
         </tbody>
       </table>
-      <a href='/highscores'>
+      <Link href='/highscores'>
       <button 
         className="buttonbox">
           See Scoreboard
         </button>
-        </a>
+        </Link>
     </div>
   );
 };
