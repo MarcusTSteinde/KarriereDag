@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import '../styles/hs.css';
-import Link from 'next/link';
+import styles from '../styles/ihs.css';
+
 const IndexScoreboard: React.FC = () => {
   const [scores, setScores] = useState([]);
 
@@ -44,12 +44,12 @@ const IndexScoreboard: React.FC = () => {
           ))}
         </tbody>
       </table>
-      <Link href='/highscores'>
+      <a href='/highscores'>
       <button 
         className="buttonbox">
           See Scoreboard
         </button>
-        </Link>
+        </a>
     </div>
   );
 };
