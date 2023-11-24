@@ -1,6 +1,7 @@
 "use client"
 import React, { useState, useEffect } from 'react';
 import Score from './Score';
+import { useRouter } from 'next/router';
 
 const WhackAMole = () => {
     const [score, setScore] = useState<number>(0);
@@ -14,6 +15,8 @@ const WhackAMole = () => {
     const [popUpVisible, setPopUpVisible] = useState(false);
     const [popUpPosition, setPopUpPosition] = useState({ x: 0, y: 0 });
     const [lifeLost, setLifeLost] = useState(false);
+
+    const router = useRouter();
 
     const triggerLifeLostAnimation = () => {
         setLifeLost(true);
@@ -89,7 +92,7 @@ const WhackAMole = () => {
             triggerLifeLostAnimation();
             // Optionally, add logic to handle the game ending if lives reach 0
             if (lives - 1 <= 0) {
-                // Handle game over (e.g., stop the game, show a message)
+                router.push('/gameover');
             }
         } else if (moles[index]) {
             // Player clicked on a mole
@@ -157,11 +160,16 @@ const WhackAMole = () => {
         const timer = setInterval(() => {
             if (timeLeft > 0) {
                 setTimeLeft(timeLeft - 1);
+                
+            }
+            if(timeLeft <= 0)
+            {
+                router.push('/timesup');
             }
         }, timerInterval);
 
         return () => clearInterval(timer);
-    }, [timeLeft, isPowerUpActive]);
+    }, [timeLeft, isPowerUpActive, router]);
 
     return (
         <div className="w-full h-full flex flex-col ">
