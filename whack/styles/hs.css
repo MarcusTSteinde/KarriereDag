@@ -130,3 +130,22 @@ td {
     background-color: rgb(32,32,56);
     color: rgb(216, 80, 202);
 }
+
+.deletebutton p {
+    padding: 22px;
+    width: 300px;
+    border-radius: 15px;
+    background-color:  rgb(216, 80, 202);
+    border:  rgb(216, 80, 202) solid 3px;
+    text-align: center;
+    align-items: center;
+    margin: 0;
+    color: white;
+    text-decoration: none;
+    margin-top: 25px;
+}
+
+.deletebutton p:hover {
+    background-color: rgb(32,32,56);
+    color: rgb(216, 80, 202);
+}
