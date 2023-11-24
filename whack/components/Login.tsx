@@ -95,7 +95,7 @@ export default function InputFormProps() {
         <Input name="nickname" placeholder="Nickname" required />
         <Input name="phoneNumber" placeholder="Phone number" required />
         <div>
-          <button className="buttonbox" type="submit">Register</button>
+          <button className="buttonbox">Register</button>
         </div>
       </Stack>
     </form>
