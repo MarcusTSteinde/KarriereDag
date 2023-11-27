@@ -20,6 +20,8 @@ export default function InputFormProps() {
 
   const fetchUsers = async () => {
     try {
+      localStorage.clear();
+
       const response = await fetch(
         "https://boopabug.azurewebsites.net/api/players"
       );
