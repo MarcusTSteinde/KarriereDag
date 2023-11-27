@@ -94,7 +94,7 @@ export default function InputFormProps() {
   return (
     <form onSubmit={handleSubmit}>
       <Stack spacing={1} sx={{ width: 400}}>
-      <div className="PressStartFont text-sm">You are the bug-busting hero Experis has been waiting for!</div>
+      <div className="PressStartFont text-sm text-white">Are you the bug-booping hero Experis has been waiting for?</div>
         <Input name="nickname" placeholder="Nickname" required />
         <Input name="phoneNumber" placeholder="Phone number" required />
         <div>
