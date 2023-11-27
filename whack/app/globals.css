@@ -159,3 +159,35 @@ body {
   transition: transform 0.5s ease-out; /* Smooth transition */
   background-color: #99001B; /* Temporary background color change */
 }
+.logo-container2 {
+  position: absolute; /* Position it without affecting other elements */
+  top: 0; /* Align to the top of the parent */
+  right: 0; /* Align to the right of the parent */
+  background-image: url('/ExperisLogo.svg'); /* Path to your logo image */
+  background-position: center; /* Center the logo in the div */
+  background-repeat: no-repeat; /* Do not repeat the logo */
+  background-size: contain; /* Ensure the entire logo is visible */
+  width: 250px; /* Set a width for the logo */
+  height: 100px; /* Set a height for the logo */
+  pointer-events: none; /* Make sure it doesn't interfere with gameplay */
+  opacity: 1; /* Set the desired opacity */
+  z-index: -1; /* Ensure it's behind all other content */
+  margin-right: 80px;
+  margin-top: 40px;
+}
+.logo-container3 {
+  position: absolute; /* Position it without affecting other elements */
+  top: 0; /* Align to the top of the parent */
+  left: 0; /* Align to the right of the parent */
+  background-image: url('/ExperisLogo.svg'); /* Path to your logo image */
+  background-position: center; /* Center the logo in the div */
+  background-repeat: no-repeat; /* Do not repeat the logo */
+  background-size: contain; /* Ensure the entire logo is visible */
+  width: 250px; /* Set a width for the logo */
+  height: 100px; /* Set a height for the logo */
+  pointer-events: none; /* Make sure it doesn't interfere with gameplay */
+  opacity: 1; /* Set the desired opacity */
+  z-index: -1; /* Ensure it's behind all other content */
+  margin-left: 80px;
+  margin-top: 40px;
+}
