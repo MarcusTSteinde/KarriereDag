@@ -234,7 +234,7 @@ const WhackAMole = () => {
               top: `${popUpPosition.y}px`,
             }}
           >
-            +10 pt
+            +16 pt
           </div>
           <div
             className="smoke show"
