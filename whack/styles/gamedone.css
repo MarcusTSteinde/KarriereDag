@@ -21,6 +21,11 @@ main {
     height: 100vh;
 }
 
+p {
+    font-size: 20px;
+    line-height: 5px;
+}
+
 .buttonbox {
     width: 45vw;
     align-items: center;
