@@ -1,10 +1,32 @@
 import Link from 'next/link';
 import '../styles/gamedone.css';
+import { useEffect, useState } from 'react';
 
 const GameOverPage: React.FC = () => {
+    const [playerScore, setPlayerScore] = useState<number | null>(null);
+
+  useEffect(() => {
+    const nickname = localStorage.getItem('nickname');
+
+    if (nickname) {
+      fetch(`https://boopabug.azurewebsites.net/api/players/${nickname}`)
+        .then((response) => response.json())
+        .then((data) => {
+          setPlayerScore(data.score);
+        })
+        .catch((error) => {
+          console.error('Error fetching user score:', error);
+        });
+    }
+  }, []);
+
+
     return (
         <main>
             <img src="/gameover.svg" alt="" />
+            <p>Bippeti bappeti BOOP,</p>
+            <p style={{ color: 'yellow', fontSize: '25px' }}>Your score is: {playerScore !== null ? playerScore : 'Loading...'},</p>
+            <p>whoop whoop!</p>
             <div className='buttonbox'>
                 <div className='seeresultsbutton'>
                     <Link href="/highscores" style={{ textDecoration: 'none' }}>
