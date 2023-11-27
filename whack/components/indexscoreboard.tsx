@@ -33,7 +33,7 @@ const IndexScoreboard: React.FC = () => {
   }, []);
 
   return (
-    <div>
+    <div className='score-board-bg'>
       <table >
         <thead>
           <tr>

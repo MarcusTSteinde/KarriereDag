@@ -16,11 +16,13 @@ export default function Home() {
             </div>
             <div className="logo-container3">
             </div>
-          <div className="absolute inset-y-0 left-32 top-64">
+            <div className="flex flex-row gap-8 justify-around w-full">
+          <div className="">
             <Login />
           </div>
-          <div className="absolute inset-y-0 right-64 top-64 w-00">
+          <div className="">
             <IndexScoreboard />
+        </div>
         </div>
       </div>
     </main>
