@@ -1,6 +1,7 @@
 "use client"
 import React, { useState, useEffect } from 'react';
 import Score from './Score';
+import Boom from "../public/boom.gif";
 import { useRouter } from 'next/router';
 
 const WhackAMole = () => {
@@ -74,7 +75,7 @@ const WhackAMole = () => {
             }
         };
 
-        const moleInterval = isPowerUpActive ? (Math.random() * (750 - 350) + 350) * 2 : Math.random() * (750 - 350) + 350;
+        const moleInterval = isPowerUpActive ? (Math.random() * (550 - 250) + 250) * 2 : Math.random() * (550 - 250) + 250;
         const timer = setInterval(showMole, moleInterval);
 
         return () => clearInterval(timer);
@@ -97,7 +98,7 @@ const WhackAMole = () => {
         } else if (moles[index]) {
             // Player clicked on a mole
             showPopUp(moleCenterX, molePosY);
-            setScore(prevScore => prevScore + 10);
+            setScore(prevScore => prevScore + 16);
             hideMole(index);
             triggerScoreAnimation();
         }
@@ -225,16 +226,28 @@ const WhackAMole = () => {
                 </div>
             </div>
             {popUpVisible && (
-                <div
-                    className="pop-up show"
-                    style={{
-                        left: `${popUpPosition.x}px`,
-                        top: `${popUpPosition.y}px`,
-                    }}
-                >
-                    +10 pt
-                </div>
-            )}
+        <div>
+          <div
+            className="pop-up show"
+            style={{
+              left: `${popUpPosition.x}px`,
+              top: `${popUpPosition.y}px`,
+            }}
+          >
+            +16 pt
+          </div>
+          <div
+            className="smoke show"
+            style={{
+              left: `${popUpPosition.x + 25}px`,
+              top: `${popUpPosition.y + 80}px`, // Subtract 50 pixels from the top position
+            }}
+          >
+            <img src={Boom.src} alt="game logo" width={100} />
+          </div>
+        </div>
+      )}
+            
             <div className="logo-container">
             </div>
         </div>
