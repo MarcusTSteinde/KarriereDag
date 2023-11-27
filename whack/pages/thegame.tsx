@@ -1,31 +1,34 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import WhackAMole from '@/components/WhackAMole';
 import Link from 'next/link'
 import '../app/globals.css';
 
 const TheGamePage: React.FC = () => {
     useEffect(() => {
-        // Create an audio element using the Audio constructor
-        const audioElement: HTMLAudioElement = new Audio('/backgroundPlay.mp3');
-
+        const audioContext = new (window.AudioContext || (window as any).webkitAudioContext)();
+    
         const playAudio = () => {
-            if (audioElement.paused) {
-                audioElement.play()
-                    .then(() => {
-                        console.log('Audio playback started successfully.');
-                    })
-                    .catch((error) => {
-                        console.error('Error starting audio playback:', error.message);
-                    });
-            }
+          const source = audioContext.createBufferSource();
+          fetch('/backgroundPlay.mp3')
+            .then(response => response.arrayBuffer())
+            .then(buffer => audioContext.decodeAudioData(buffer))
+            .then(decodedData => {
+              source.buffer = decodedData;
+              source.connect(audioContext.destination);
+              source.start(0);
+            })
+            .catch(error => {
+              console.error('Error loading or playing audio:', error.message);
+            });
         };
-
+    
+        // Play audio automatically
         playAudio();
-
+    
         return () => {
-            audioElement.pause();
+          audioContext.close();
         };
-    }, []);
+      }, []);
 
     return (
         <main>
