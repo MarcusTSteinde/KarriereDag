@@ -20,18 +20,18 @@ export default function Home() {
         <div className="logo-container3">
         </div>
 
+        <div className="flex flex-row gap-20 justify-around">
+        <div className="">
+          <Login />
+        </div>
+        <div className="">
+          <IndexScoreboard />
+        </div>
+        </div>
         <div className="adminbutton">
           <Link href="/admin" style={{ textDecoration: 'none' }}>
             <p>Admin Page</p>
           </Link>
-        </div>
-
-        <div className="absolute inset-y-0 left-32 top-64">
-          <Login />
-        </div>
-
-        <div className="absolute inset-y-0 right-64 top-64 w-00">
-          <IndexScoreboard />
         </div>
       </div> 
     </main>
