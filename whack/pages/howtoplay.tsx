@@ -6,9 +6,8 @@ const HowToPlayPage: React.FC = () => {
   return (
     <main>
       <div>
+        <img className='header' src="/gamerules.svg" alt="header" />
         <div className='infoboxes'>
-          <img className='header' src="/gamerules.svg" alt="header" />
-
           <div className='infobox'>
             <img src="/bug.svg" alt="image" />
             <p>Each bug you BOOP (click on) earns you points. You’ve got 30 seconds to finish your mission!</p>

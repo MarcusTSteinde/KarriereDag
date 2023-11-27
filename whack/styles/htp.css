@@ -21,24 +21,27 @@ main {
 div {
   width: 100vw;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .infoboxes {
   width: 45vw;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  margin: auto;
+  justify-content: space-between;
 }
 
 .header {
   width: 500px;
-  margin: 50px auto 50px 70px;
   align-items: center;
+  margin: 40px auto;
 }
 
 .infobox {
-  margin: 10px;
-  width: 50vw;
+  margin: 5px 20px 0 20px;
+  width: 100vw;
 }
 
 .infobox img {
@@ -49,8 +52,8 @@ div {
   margin-right: 20px;
 }
 .infobox p {
-  width: 100%;
-  margin: 10px;
+  width: 20vw;
+  margin: 0 10px;
   height: 80px;
   align-items: center;
   line-height: 20px;
@@ -58,15 +61,16 @@ div {
 
 .buttonbox {
   width: 45vw;
-  height: 60vh;
+  height: 45vh;
   align-items: center;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: center;
+  margin: 0 auto;
 }
 
 .buttonbox p {
-    padding: 60px;
+    padding: 50px;
     border-radius: 15px;
     background-color:  rgb(216, 80, 202);
     border:  rgb(216, 80, 202) solid 3px;
