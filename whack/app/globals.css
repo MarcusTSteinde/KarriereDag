@@ -104,6 +104,21 @@ body {
   opacity: 1;
   visibility: visible;
 }
+.smoke {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 10rem;
+  text-align: center;
+  transform: translate(-50%, -50%); /* Center the pop-up on the coordinates */
+  transition: opacity 0.3s, visibility 0.3s;
+  opacity: 0;
+  visibility: hidden;
+}
+.smoke.show {
+  opacity: 1;
+  visibility: visible;
+}
 .bomb {
   width: auto;
   height: auto;
