@@ -12,6 +12,10 @@ export default function Home() {
         <div className="mt-12">
           <Image src={Logo} alt="game logo" />
         </div>
+        <div className="logo-container2">
+            </div>
+            <div className="logo-container3">
+            </div>
           <div className="absolute inset-y-0 left-32 top-64">
             <Login />
           </div>
