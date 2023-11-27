@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
 :root {
   --foreground-rgb: 0, 0, 0;
@@ -190,4 +191,25 @@ body {
   z-index: -1; /* Ensure it's behind all other content */
   margin-left: 80px;
   margin-top: 40px;
+}
+
+.adminbutton {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.adminbutton p {
+  padding: 10px;
+  width: 200px;
+  background-color: rgb(32,32,56);
+  text-align: center;
+  border: rgb(216, 80, 202) solid 3px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-family: 'Press Start 2P';
+}
+
+.adminbutton p:hover {
+  background-color: white;
+  color: rgb(32,32,56);
 }
