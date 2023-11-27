@@ -1,6 +1,7 @@
 "use client"
 import React, { useState, useEffect } from 'react';
 import Score from './Score';
+import Boom from "../public/boom.gif";
 import { useRouter } from 'next/router';
 
 const WhackAMole = () => {
