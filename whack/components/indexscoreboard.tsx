@@ -34,7 +34,7 @@ const IndexScoreboard: React.FC = () => {
 
   return (
     <div>
-      <table>
+      <table >
         <thead>
           <tr>
             <th>Rank</th>

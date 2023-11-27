@@ -12,7 +12,7 @@ export default function Home() {
         <div className="mt-12">
           <Image src={Logo} alt="game logo" />
         </div>
-          <div className="absolute inset-y-0 left-32 top-80">
+          <div className="absolute inset-y-0 left-32 top-64">
             <Login />
           </div>
           <div className="absolute inset-y-0 right-64 top-64 w-00">

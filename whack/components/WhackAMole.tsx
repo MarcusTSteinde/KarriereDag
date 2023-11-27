@@ -97,7 +97,7 @@ const WhackAMole = () => {
         } else if (moles[index]) {
             // Player clicked on a mole
             showPopUp(moleCenterX, molePosY);
-            setScore(prevScore => prevScore + 10);
+            setScore(prevScore => prevScore + 16);
             hideMole(index);
             triggerScoreAnimation();
         }
@@ -232,7 +232,7 @@ const WhackAMole = () => {
                         top: `${popUpPosition.y}px`,
                     }}
                 >
-                    +10 pt
+                    +16 pt
                 </div>
             )}
             <div className="logo-container">
