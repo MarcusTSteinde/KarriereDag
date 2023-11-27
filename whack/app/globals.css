@@ -211,5 +211,8 @@ body {
 
 .adminbutton p:hover {
   background-color: white;
-  color: rgb(32,32,56);
+  color: rgb(32,32,56);}
+  
+.score-board-bg {
+  background-color: #50324F50;
 }
