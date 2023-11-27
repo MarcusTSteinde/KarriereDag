@@ -74,7 +74,7 @@ const WhackAMole = () => {
             }
         };
 
-        const moleInterval = isPowerUpActive ? (Math.random() * (750 - 350) + 350) * 2 : Math.random() * (750 - 350) + 350;
+        const moleInterval = isPowerUpActive ? (Math.random() * (550 - 250) + 250) * 2 : Math.random() * (550 - 250) + 250;
         const timer = setInterval(showMole, moleInterval);
 
         return () => clearInterval(timer);
