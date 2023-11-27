@@ -92,7 +92,7 @@ const WhackAMole = () => {
             triggerLifeLostAnimation();
             // Optionally, add logic to handle the game ending if lives reach 0
             if (lives - 1 <= 0) {
-                router.push('/gameover');
+                putScore(score, false)
             }
         } else if (moles[index]) {
             // Player clicked on a mole
@@ -153,7 +153,35 @@ const WhackAMole = () => {
     }, [bombIndex]); // Include timeLeft in dependencies
 
     /// ******************************************** TIMER LOGIC ********************************************
-
+    async function putScore(gameScore : Number, timedOut : boolean)
+    {
+        const nickname = localStorage.getItem("nickname")
+        try {
+            const response = await fetch(`https://boopabug.azurewebsites.net/api/players/update-score/${nickname}`, {
+              method: "PUT",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({
+                score: gameScore,
+              }),
+            });
+      
+            if (response.ok && timedOut) {
+                router.push('/timesup');
+            } 
+            else if (response.ok && !timedOut) {
+                router.push('/gameover');
+            }
+            else {
+              alert(`Error during updating score: ${response.status}`);
+              const errorText = await response.text();
+              console.error(errorText);
+            }
+          } catch (error) {
+            console.error("An error occurred during registration:", error);
+          }
+    } 
     useEffect(() => {
         const timerInterval = isPowerUpActive ? 2000 : 1000; // 2 seconds if power-up is active, otherwise 1 second
 
@@ -164,7 +192,7 @@ const WhackAMole = () => {
             }
             if(timeLeft <= 0)
             {
-                router.push('/timesup');
+                putScore(score, true)
             }
         }, timerInterval);
 
