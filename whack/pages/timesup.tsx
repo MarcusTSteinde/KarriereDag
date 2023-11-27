@@ -1,7 +1,10 @@
 import Link from 'next/link';
 import '../styles/gamedone.css';
+import { useEffect } from 'react';
+import Head from 'next/head';
 
 const TimesUpPage: React.FC = () => {
+
     return (
         <main>
             <img src="/timesup.svg" alt="" />
