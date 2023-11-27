@@ -29,7 +29,7 @@ export default function Home() {
         </div>
         </div>
         <div className="adminbutton">
-          <Link href="/admin" style={{ textDecoration: 'none' }}>
+          <Link href="/admin" style={{ textDecoration: 'none' }}  className="PressStartFont">
             <p className="PressStartFont">Admin Page</p>
           </Link>
         </div>
